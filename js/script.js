@@ -3,8 +3,8 @@ const listNumbers = document.getElementById('numbers-list');
 const instruction = document.getElementById('instructions');
 const answersForm = document.getElementById('answers-form');
 const btn = document.getElementById('button');
-const outputGood = document.getElementById('message');
-const outputBad = document.getElementById('message2');
+const message = document.getElementById('message');
+const outputGood = document.getElementById('message2');
 
 let count = 5;
 
@@ -15,7 +15,7 @@ const number4 = generatorNumber();
 const number5 = generatorNumber();
 
 
-listNumbers.innerHTML =`<li>${number1}</li>
+listNumbers.innerHTML = `<li>${number1}</li>
                         <li>${number2}</li>
                         <li>${number3}</li>
                         <li>${number4}</li>
@@ -37,27 +37,27 @@ btn.addEventListener('click', checkNumbers);
 /**************
  FUNCTIONS
 **************/
-function countdownFunction(){
+function countdownFunction() {
     countdown.innerText = count;
     count--;
-    if(count === -1){
+    if (count === -1) {
         findNumbers();
         clearInterval(countdownUntil0);
     }
 }
 
-function generatorNumber(){
+function generatorNumber() {
     return Math.floor(Math.random() * 50) + 1;
 }
 
-function findNumbers(){
+function findNumbers() {
     listNumbers.className = "d-none";
     countdown.className = "d-none";
     instruction.innerText = "Inserisci tutti i numeri che ricordi(l'ordine non è importante)";
     answersForm.className = "d-block";
 }
 
-function checkNumbers(e){
+function checkNumbers(e) {
     e.preventDefault();
     let arrayNumbers = [number1, number2, number3, number4, number5];
     console.log('Numeri random', arrayNumbers);
@@ -68,21 +68,28 @@ function checkNumbers(e){
     const numberCheck4 = document.getElementById('numberCheck4').value;
     const numberCheck5 = document.getElementById('numberCheck5').value;
 
-    let numbersCheck = [numberCheck1, numberCheck2, numberCheck3, numberCheck4, numberCheck5];
+    const numberCheckInt1 = parseInt(numberCheck1);
+    const numberCheckInt2 = parseInt(numberCheck2);
+    const numberCheckInt3 = parseInt(numberCheck3);
+    const numberCheckInt4 = parseInt(numberCheck4);
+    const numberCheckInt5 = parseInt(numberCheck5);
+
+    let numbersCheck = [numberCheckInt1, numberCheckInt2, numberCheckInt3, numberCheckInt4, numberCheckInt5];
     console.log("Numeri di verifica: ", numbersCheck);
 
+    message.textContent = ('I numeri indovinati sono:');
 
-    for(let i = 0; i < arrayNumbers.length; i++){
+    for (let i = 0; i < arrayNumbers.length; i++) {
         // if(arrayNumbers.includes(numbersCheck[i])){
         //     console.log('questo numero c\'è', numbersCheck[i]);
         // }else{
         //     console.log('questo numero non c\'è', numbersCheck[i]);
         // }
-        for(let x = 0; x < numbersCheck.length; x++){
+        for (let x = 0; x < numbersCheck.length; x++) {
+            if (arrayNumbers[i] === numbersCheck[x]) {
 
-            if(arrayNumbers[i] === numbersCheck[x]){
                 console.log('Questo numero è uguale', arrayNumbers[i]);
-                outputGood.textContent += `${numbersCheck[x]},`;
+                outputGood.textContent += `${numbersCheck[x]} `;
             }
         }
     }
