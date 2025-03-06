@@ -2,11 +2,14 @@ const countdown = document.getElementById('countdown');
 const listNumbers = document.getElementById('numbers-list');
 const instruction = document.getElementById('instructions');
 const answersForm = document.getElementById('answers-form');
+
 const btn = document.getElementById('button');
 const message = document.getElementById('message');
+message.classList.add('my-3');
+
 const outputGood = document.getElementById('message2');
 
-let count = 5;
+let count = 30;
 
 const number1 = generatorNumber();
 const number2 = generatorNumber();
