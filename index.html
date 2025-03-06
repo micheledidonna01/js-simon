@@ -27,14 +27,16 @@
     <!-- Form -->
     <form id="answers-form" class="d-none">
       <div class="d-flex gap-5" id="input-group">
-        <input type="number" class="form-control" min="1" max="50" required>
-        <input type="number" class="form-control" min="1" max="50" required>
-        <input type="number" class="form-control" min="1" max="50" required>
-        <input type="number" class="form-control" min="1" max="50" required>
-        <input type="number" class="form-control" min="1" max="50" required>
+        <input type="number" class="form-control" id="numberCheck1" min="1" max="50" required>
+        <input type="number" class="form-control" id="numberCheck2" min="1" max="50" required>
+        <input type="number" class="form-control" id="numberCheck3" min="1" max="50" required>
+        <input type="number" class="form-control" id="numberCheck4" min="1" max="50" required>
+        <input type="number" class="form-control" id="numberCheck5" min="1" max="50" required>
       </div>
-      <button class="btn btn-primary mt-2 d-block mx-auto">Conferma</button>
-      <p class="text-danger text-center" id="message"></p>
+      <button class="btn btn-primary mt-2 d-block mx-auto" id="button">Conferma</button>
+        <p class="text-success text-center col-12" id="message"></p>
+        <p class="text-danger text-center col-12" id="message2"></p>
+
     </form>
   </div>
 
